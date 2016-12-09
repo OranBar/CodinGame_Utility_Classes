@@ -156,6 +156,11 @@ public struct Vector2 : IEquatable<Vector2>
     {
         return X * v.Y + Y * v.X;
     }
+
+    public Vector2 Orthogonal()
+    {
+        return new Vector2(-Y, X);
+    }
     #endregion
 }
 
