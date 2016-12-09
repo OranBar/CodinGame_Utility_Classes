@@ -131,6 +131,23 @@ public struct Vector2 : IEquatable<Vector2>
         return Math.Pow(v1.X - v2.X, 2) + Math.Pow(v1.Y - v2.Y, 2);
     }
 
+    public double Distance(Vector2 other)
+    {
+        return Vector2.Distance(this, other);
+    }
+
+    public double DistanceSquared(Vector2 other)
+    {
+        return Vector2.DistanceSquared(this, other);
+    }
+
+    public static Vector2 Closest(Vector2 v1, Vector2 v2)
+    {
+        double distanceToV1 = this.DistanceSquared(v1);
+        double distanceToV2 = this.DistanceSquared(v2);
+        return (distanceToV1 <= distanceToV2) ? distanceToV1 : distanceToV2;
+    }
+
     public double Length()
     {
         return Math.Sqrt(X * X + Y * Y);
