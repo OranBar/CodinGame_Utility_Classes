@@ -11,8 +11,8 @@ public struct Vector2 : IEquatable<Vector2>
     #region Static Variables
     public static double COMPARISON_TOLERANCE = 0.0000001;
 
-    private static Vector2 zeroVector = new Vector2(0);
-    private static Vector2 unitVector = new Vector2(1);
+    private readonly static Vector2 zeroVector = new Vector2(0);
+    private readonly static Vector2 unitVector = new Vector2(1);
 
     public static Vector2 Zero
     {

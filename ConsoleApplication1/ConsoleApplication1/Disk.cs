@@ -5,9 +5,9 @@ using System.Linq;
 
 public class Disk
 {
-    public Vector2 position;
-    public Vector2 velocity;
-    public double radius;
+    public readonly Vector2 position;
+    public readonly Vector2 velocity;
+    public readonly double radius;
 
     public Disk(Vector2 position, Vector2 velocity, double radius)
     {
