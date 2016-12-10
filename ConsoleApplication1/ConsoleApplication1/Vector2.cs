@@ -6,7 +6,7 @@
  * Author: Oran Bar
  */
 [Serializable]
-public struct Vector2 : IEquatable<Vector2>
+public class Vector2 : IEquatable<Vector2>
 {
     #region Static Variables
     public static double COMPARISON_TOLERANCE = 0.0000001;
@@ -63,35 +63,46 @@ public struct Vector2 : IEquatable<Vector2>
         return new Vector2(v1.X * mult, v1.Y * mult);
     }
 
-    public static Vector2 operator *(Vector2 v1, Vector2 mult)
+    public static bool operator ==(Vector2 a, Vector2 b)
     {
-        return new Vector2(v1.X * mult.X, v1.Y * mult.Y);
+        // If both are null, or both are same instance, return true.
+        if (System.Object.ReferenceEquals(a, b))
+        {
+            return true;
+        }
+
+        // If one is null, but not both, return false.
+        if (((object)a == null) || ((object)b == null))
+        {
+            return false;
+        }
+
+        // Return true if the fields match:
+        return a.Equals(b);
     }
 
-    public static bool operator ==(Vector2 value1, Vector2 value2)
+    public static bool operator !=(Vector2 a, Vector2 b)
     {
-        return value1.Equals(value2);
-    }
-
-    public static bool operator !=(Vector2 value1, Vector2 value2)
-    {
-        return value1.Equals(value2) == false;
+        return (a == b) == false;
     }
     #endregion
 
     #region Object Class Overrides
     public override bool Equals(object obj)
     {
-        if (obj is Vector2)
+        if (obj == null)
         {
-            return Equals((Vector2)this);
+            return false;
         }
-
-        return false;
+        return Equals(obj as Vector2);
     }
 
     public bool Equals(Vector2 other)
     {
+        if ((object)other == null)
+        {
+            return false;
+        }
         if (Math.Abs(X - other.X) > COMPARISON_TOLERANCE)
         {
             return false;
@@ -141,11 +152,11 @@ public struct Vector2 : IEquatable<Vector2>
         return Vector2.DistanceSquared(this, other);
     }
 
-    public static Vector2 Closest(Vector2 v1, Vector2 v2)
+    public Vector2 Closest(Vector2 v1, Vector2 v2)
     {
         double distanceToV1 = this.DistanceSquared(v1);
         double distanceToV2 = this.DistanceSquared(v2);
-        return (distanceToV1 <= distanceToV2) ? distanceToV1 : distanceToV2;
+        return (distanceToV1 <= distanceToV2) ? v1 : v2;
     }
 
     public double Length()
