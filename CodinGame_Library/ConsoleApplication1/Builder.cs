@@ -44,13 +44,12 @@ public class Builder
                     using (StreamReader reader = f.OpenText())
                     {
                         Console.WriteLine(f.FullName);
-                        string line = "\n";
-                        while(true){
+                        string line = "";
+                        do
+                        {
                             line = reader.ReadLine();
-                            if (line.Contains("using")==false){
-                                break;
-                            }
-                        }
+                        } while (line.Contains("using"));
+
                         //Write classes code
                         writer.WriteLine(line);
                         writer.Write(reader.ReadToEnd());
@@ -58,19 +57,12 @@ public class Builder
                 }
             }
         }
-
-
-        
-            
-        
-    
-    }
+   }
 
     public static int Main(string[] args)
     {
         Builder b = new Builder();
         b.Build();
-        Console.ReadLine();
         return 0;
     }
 }
