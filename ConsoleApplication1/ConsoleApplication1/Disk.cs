@@ -21,21 +21,22 @@ public class Disk : Vector2
         }
     }
 
-    public static override bool operator==(Disk d1, Disk d2){
+    public static bool operator==(Disk d1, Disk d2){
         // If both are null, or both are same instance, return true.
-        if (System.Object.ReferenceEquals(a, b))
+        if (System.Object.ReferenceEquals(d1, d2))
         {
             return true;
         }
 
         // If one is null, but not both, return false.
-        if (((object)a == null) || ((object)b == null))
+        if (((object)d1 == null) || ((object)d2 == null))
         {
             return false;
         }
+        return d1.Equals(d2);
     }
 
-    public static override bool operator !=(Disk d1, Disk d2)
+    public static bool operator !=(Disk d1, Disk d2)
     {
         return (d1==d2) == false;
     }
