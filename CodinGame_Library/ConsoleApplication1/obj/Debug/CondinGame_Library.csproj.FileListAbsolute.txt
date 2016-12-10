@@ -1,3 +1,6 @@
 E:\Git_Repos\CodinGame_Utility_Classes\CodinGame_Library\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
 E:\Git_Repos\CodinGame_Utility_Classes\CodinGame_Library\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 E:\Git_Repos\CodinGame_Utility_Classes\CodinGame_Library\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+E:\Git_Repos\CodinGame_Utility_Classes\CodinGame_Library\ConsoleApplication1\obj\Debug\CondinGame_Library.csprojResolveAssemblyReference.cache
+E:\Git_Repos\CodinGame_Utility_Classes\CodinGame_Library\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+E:\Git_Repos\CodinGame_Utility_Classes\CodinGame_Library\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
