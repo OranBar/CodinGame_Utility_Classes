@@ -189,6 +189,17 @@ public class Vector2 : IEquatable<Vector2>
     {
         return new Vector2(-Y, X);
     }
+    
+    //TODO: test
+    public double AngleTo(Vector2 v)
+    {
+        return this.Dot(v) / (this.Length() + v.Length());
+    }
+
+    public Vector2 ScalarProjectionOn(Vector2 v)
+    {
+        return v.Normalize() * this.Dot(v);
+    }
     #endregion
 }
 

@@ -30,12 +30,6 @@ public class Disk : Vector2
         this.radius = radius;
     }
 
-    public Disk Move(Vector2 newPosition, int thrust = 0)
-    {
-        Vector2 movementVelocity = (newPosition - this).Normalize() * thrust;
-        return new Disk(newPosition, velocity + movementVelocity, radius);
-    }
-
     /** <summary>Move the disk by its speed vector</summary> 
      */
     public Disk Move()
@@ -43,20 +37,20 @@ public class Disk : Vector2
         return new Disk(this + velocity, velocity, radius);
     }
 
-    public Disk Accelerate(Vector2 acceleration)
+    public Disk AddAcceleration(Vector2 acceleration)
     {
         return new Disk(this, velocity + acceleration, radius);
     }
 
-    public Disk Accelerate(double factor)
+    public Disk AccelerateByFactor(double factor)
     {
         return new Disk(this, velocity*factor, radius);
     }
 
 
     /**
-     * <summary> Identify if the disk will collide with each other assuming that both
-     * disks will remain with a constant speed. A collision occurs when the two
+     * <summary> Identify if the disks will collide with each other assuming that both
+     * disks will remain with a constant velocity. A collision occurs when the two
      * circles touch each other </summary>
      * 
      */
