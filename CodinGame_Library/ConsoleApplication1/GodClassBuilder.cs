@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 
 
-public class Builder
+public class GodClassBuilder
 {
     public void Build()
     {
@@ -61,7 +61,7 @@ public class Builder
 
     public static int Main(string[] args)
     {
-        Builder b = new Builder();
+        GodClassBuilder b = new GodClassBuilder();
         b.Build();
         return 0;
     }

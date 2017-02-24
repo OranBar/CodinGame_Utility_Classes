@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Linq;
 
 /** Vector2 Class
  * 
@@ -152,14 +152,11 @@ public class Vector2 : IEquatable<Vector2>
         return Vector2.DistanceSquared(this, other);
     }
 
-    public Vector2 Closest(Vector2 v1, Vector2 v2)
-    {
-        double distanceToV1 = this.DistanceSquared(v1);
-        double distanceToV2 = this.DistanceSquared(v2);
-        return (distanceToV1 <= distanceToV2) ? v1 : v2;
-    }
+	public Vector2 Closest(params Vector2[] vectors) {
+		return vectors.ToList().OrderBy( v1 => this.DistanceSquared(v1) ).First();
+	}
 
-    public double Length()
+	public double Length()
     {
         return Math.Sqrt(X * X + Y * Y);
     }
@@ -200,6 +197,14 @@ public class Vector2 : IEquatable<Vector2>
     {
         return v.Normalize() * this.Dot(v);
     }
+
+	public double AngleInDegree() {
+		return AngleInRadians() * (180.0 / Math.PI);
+	}
+
+	public double AngleInRadians() {
+		return Math.Atan2(Y, X);
+	}
     #endregion
 }
 
